@@ -2,10 +2,10 @@ class Graphus < Formula
   desc "Java/Spring code graph and RAG CLI"
   homepage "https://github.com/alcantaraleo/graphus"
   # Keep version in sync with the Graphus GitHub release tag.
-  version "0.6.0"
+  version "0.6.1"
   url "https://github.com/alcantaraleo/graphus/releases/download/v#{version}/graphus.jar"
   # Update this checksum for every new release.
-  sha256 "c5d98cee20474132df37df8849f9ea8a20dcb23c9dd43c8c5cfbe9ad2229ec60"
+  sha256 "e7a5ad4492e2331480e04d577a4303b2745c808e81c3181750208cb7c5ae5777"
   license "Apache-2.0"
 
   depends_on "openjdk@21"
