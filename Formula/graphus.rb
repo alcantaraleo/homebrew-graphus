@@ -13,6 +13,7 @@ class Graphus < Formula
   def install
     libexec.install "graphus.jar"
 
+    bin.mkpath
     (bin/"graphus").atomic_write <<~EOS
       #!/bin/sh
       export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk@21"].opt_prefix}}"
