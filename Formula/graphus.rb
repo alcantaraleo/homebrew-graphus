@@ -1,11 +1,11 @@
 class Graphus < Formula
   desc "Java/Spring code graph and RAG CLI"
   homepage "https://github.com/alcantaraleo/graphus"
-  # Keep version in sync with the Graphus GitHub release tag.
-  version "0.7.0"
+  # version and sha256 are updated automatically by publish.yml on each release.
+  # Edit the formula logic here; do not hand-edit alcantaraleo/homebrew-graphus.
+  version "0.8.0"
   url "https://github.com/alcantaraleo/graphus/releases/download/v#{version}/graphus.jar"
-  # Update this checksum for every new release.
-  sha256 "249236727c49b36a19c70c25dee9bafda3cfb9c054126fe747ce1be9de56f231"
+  sha256 "c1b1d4d12571af76335a8e34480e4268931d7a703252eb701e7d83c683bcf308"
   license "Apache-2.0"
 
   depends_on "openjdk@21"
@@ -26,5 +26,6 @@ class Graphus < Formula
     output = shell_output("#{bin}/graphus --help")
     assert_match "Java/Spring code graph + RAG CLI", output
     assert_match "install", output
+    assert_match "serve", output
   end
 end
