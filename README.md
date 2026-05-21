@@ -1,48 +1,31 @@
 # homebrew-graphus
 
-Homebrew tap for installing the Graphus CLI.
+Homebrew tap for the [Graphus](https://github.com/alcantaraleo/graphus) CLI.
 
-## What this repository provides
-
-- Formula: `Formula/graphus.rb`
-- Install source: Graphus release artifact (`graphus.jar`) from [`alcantaraleo/graphus`](https://github.com/alcantaraleo/graphus)
-- Runtime dependency: `openjdk@21`
-
-## Install and upgrade
+## Install
 
 ```bash
 brew tap alcantaraleo/graphus
 brew install alcantaraleo/graphus/graphus
 ```
 
-Upgrade to the latest formula version:
+Upgrade:
 
 ```bash
-brew update
-brew upgrade alcantaraleo/graphus/graphus
+brew update && brew upgrade alcantaraleo/graphus/graphus
 ```
 
-Quick verification:
+## How this tap is managed
 
-```bash
-graphus --help
-```
+**Do not edit this repository by hand.**
 
-## Publish model
+The formula (`Formula/graphus.rb`) is managed automatically by the `publish.yml` workflow in
+[`alcantaraleo/graphus`](https://github.com/alcantaraleo/graphus). On every GitHub Release:
 
-This tap does not require a separate publish pipeline.
+1. `publish.yml` reads `Formula/graphus.rb` from the main repo (source of truth for formula logic).
+2. It substitutes the new release version and `sha256` of `graphus.jar`.
+3. It validates Ruby syntax (`ruby -c`).
+4. It pushes the rendered formula here.
 
-Publishing happens by merging formula changes into `main`:
-
-1. Open and merge a PR into `main` in this repository.
-2. Users run `brew update`.
-3. Homebrew resolves installs/upgrades from the updated formula in this tap.
-
-## Maintainer checklist for a new Graphus release
-
-1. Update `version` in `Formula/graphus.rb`.
-2. Update `sha256` in `Formula/graphus.rb` using the released `graphus.jar`.
-3. Validate locally:
-   - `brew reinstall --build-from-source ./Formula/graphus.rb` (or `brew install --build-from-source ./Formula/graphus.rb`)
-   - `graphus --help` (and/or `graphus --version`)
-4. Open PR with test evidence and merge to `main`.
+To change formula logic (install steps, test assertions, dependencies), open a PR against
+`alcantaraleo/graphus` — not this repo.
