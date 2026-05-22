@@ -3,9 +3,9 @@ class Graphus < Formula
   homepage "https://github.com/alcantaraleo/graphus"
   # version and sha256 are updated automatically by publish.yml on each release.
   # Edit the formula logic here; do not hand-edit alcantaraleo/homebrew-graphus.
-  version "0.8.0"
+  version "0.9.0"
   url "https://github.com/alcantaraleo/graphus/releases/download/v#{version}/graphus.jar"
-  sha256 "c1b1d4d12571af76335a8e34480e4268931d7a703252eb701e7d83c683bcf308"
+  sha256 "6fd9fa328ce0c6e1eed4753a1b9fb588e45f049ec6c951dec3914b2021d7778e"
   license "Apache-2.0"
 
   depends_on "openjdk@21"
